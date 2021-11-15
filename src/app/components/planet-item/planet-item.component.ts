@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Planet } from 'src/app/models/interfaces/planet.interface';
 
 @Component({
@@ -8,6 +8,8 @@ import { Planet } from 'src/app/models/interfaces/planet.interface';
 })
 export class PlanetItemComponent implements OnInit {
   @Input() planetInput!: Planet;
+  @Output() planetSelectedEvent = new EventEmitter<Planet>();
+  @Output() planetDeletedEvent = new EventEmitter<Planet>();
 
   constructor() { }
 
@@ -18,5 +20,13 @@ export class PlanetItemComponent implements OnInit {
     let urlParts = url.split('/');
     let id = urlParts[5];
     return id;
+  }
+
+  onPlanetClick() {
+    this.planetSelectedEvent.emit(this.planetInput);
+  }
+
+  onPlanetDeleteClick() {
+    this.planetDeletedEvent.emit(this.planetInput);
   }
 }

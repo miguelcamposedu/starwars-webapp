@@ -1,1 +1,12 @@
-<app-planet-item *ngFor="let p of planetList" [planetInput]="p"></app-planet-item>
+
+<div fxFlexFill fxLayout="row">
+    <!-- Listado de planetas -->
+    <div fxFlex="30" style="background-color: yellow;">
+        <app-planet-item *ngFor="let p of planetList" [planetInput]="p" (planetSelectedEvent)="onPlanetSelected($event)" (planetDeletedEvent)="updateList($event)"></app-planet-item>
+    </div>
+
+    <!-- Detalle del planeta seleccionado -->
+    <div fxFlex="70" style="background-color: yellowgreen;">
+        <app-planet-selected [planet]="planetSelected"></app-planet-selected>
+    </div>
+</div>

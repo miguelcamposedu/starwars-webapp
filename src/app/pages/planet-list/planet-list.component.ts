@@ -9,6 +9,7 @@ import { PlanetService } from 'src/app/services/planet.service';
 })
 export class PlanetListComponent implements OnInit {
   planetList: Planet[] = [];
+  planetSelected!: Planet;
 
   constructor(private planetaService: PlanetService) { }
 
@@ -16,6 +17,14 @@ export class PlanetListComponent implements OnInit {
     this.planetaService.getPlanets().subscribe(planets => {
       this.planetList = planets.results;
     });
+  }
+
+  onPlanetSelected(newPlanet: Planet) {
+    this.planetSelected = newPlanet;
+  }
+
+  updateList(planetDeleted: Planet) {
+    alert(`${planetDeleted.name} ha sido eliminado`);
   }
 
 }

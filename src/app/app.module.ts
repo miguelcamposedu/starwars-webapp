@@ -9,6 +9,8 @@ import { PlanetListComponent } from './pages/planet-list/planet-list.component';
 import { PlanetItemComponent } from './components/planet-item/planet-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanetDetailComponent } from './pages/planet-detail/planet-detail.component';
+import { PlanetSelectedComponent } from './components/planet-selected/planet-selected.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +18,14 @@ import { PlanetDetailComponent } from './pages/planet-detail/planet-detail.compo
     PersonItemComponent,
     PlanetListComponent,
     PlanetItemComponent,
-    PlanetDetailComponent
+    PlanetDetailComponent,
+    PlanetSelectedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
